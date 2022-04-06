@@ -1,0 +1,2 @@
+# Bazı Ekran Görüntüleri
+[![splash](https://i.ibb.co/hYqZ6Tp/Splash.jpg "splash")](https://i.ibb.co/hYqZ6Tp/Splash.jpg "splash")			[![login](https://i.ibb.co/ccskHpF/Login.gif "login")](https://i.ibb.co/ccskHpF/Login.gif "login")	[![showroom](https://i.ibb.co/72V4N0Z/Showroom.gif "showroom")](https://i.ibb.co/72V4N0Z/Showroom.gif "showroom")
