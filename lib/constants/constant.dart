@@ -12,5 +12,5 @@ List<Car> carInfo = [
   Car("assets/images/LamborghiniAventador.png", 800, "Lamborghini"),
   Car("assets/images/MercedesSclass.png", 550, "Mercedes"),
   Car("assets/images/Supra.png", 500, "Supra"),
-  Car("assets/images/TeslaModel3.png", 650, "Tesla")
+  Car("assets/images/TeslaModel3.png", 650, "Tesla"),
 ];

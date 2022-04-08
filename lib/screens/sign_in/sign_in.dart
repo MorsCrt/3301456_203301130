@@ -117,7 +117,7 @@ class SignIn extends StatelessWidget {
                         ],
                       ),
                     ],
-                  )
+                  ),
                 ],
               ),
             ),
