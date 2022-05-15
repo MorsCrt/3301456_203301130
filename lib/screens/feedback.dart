@@ -1,5 +1,5 @@
 import 'package:carrental/constants/constant.dart';
-import 'package:carrental/widgets/linear_gradien_appbar.dart';
+import 'package:carrental/widgets/Shared/linear_gradien_appbar.dart';
 import 'package:flutter/material.dart';
 
 class FeedBack extends StatefulWidget {

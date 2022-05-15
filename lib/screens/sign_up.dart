@@ -1,7 +1,7 @@
-import 'package:carrental/widgets/linear_gradien_appbar.dart';
+import 'package:carrental/widgets/Shared/linear_gradien_appbar.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/hint_to_textfield.dart';
+import '../widgets/Shared/hint_to_textfield.dart';
 import 'more_info.dart';
 
 class SignUp extends StatelessWidget {

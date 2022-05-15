@@ -1,5 +1,5 @@
-import 'package:carrental/widgets/linear_gradien_appbar.dart';
-import 'package:carrental/widgets/settings_list.dart';
+import 'package:carrental/widgets/Shared/linear_gradien_appbar.dart';
+import 'package:carrental/widgets/SettingsPage/settings_list.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatelessWidget {

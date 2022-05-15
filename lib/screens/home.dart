@@ -1,6 +1,6 @@
 import 'package:carrental/constants/constant.dart';
 import 'package:carrental/screens/settings.dart';
-import 'package:carrental/widgets/linear_gradien_appbar.dart';
+import 'package:carrental/widgets/Shared/linear_gradien_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:carrental/widgets/Home/car_list.dart';
 
@@ -12,7 +12,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: LnrGradiendAppBar(
-        appBarText: "More Info",
+        appBarText: "Home",
         actionList: [
           IconButton(
             onPressed: () {

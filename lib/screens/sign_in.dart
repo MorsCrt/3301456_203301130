@@ -1,6 +1,6 @@
 import 'package:carrental/screens/home.dart';
 import 'package:carrental/screens/passreset.dart';
-import 'package:carrental/widgets/hint_to_textfield.dart';
+import 'package:carrental/widgets/Shared/hint_to_textfield.dart';
 import 'package:flutter/material.dart';
 import 'sign_up.dart';
 
