@@ -11,7 +11,7 @@ class CarList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Car car = carInfo[index];
+    Car car = carInfoHome[index];
     return Container(
       margin: const EdgeInsets.only(bottom: 20),
       child: Stack(

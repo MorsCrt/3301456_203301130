@@ -37,7 +37,7 @@ class Home extends StatelessWidget {
         ),
       ),
       body: ListView.builder(
-        itemCount: carInfo.length,
+        itemCount: carInfoHome.length,
         itemBuilder: (context, index) => CarList(index),
       ),
     );
