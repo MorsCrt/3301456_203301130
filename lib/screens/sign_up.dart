@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/hint_to_textfield.dart';
-import '../moreinfo/more_info.dart';
+import '../widgets/hint_to_textfield.dart';
+import 'more_info.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -71,6 +71,7 @@ class SignUp extends StatelessWidget {
                   ],
                 ),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
                       padding: const EdgeInsets.fromLTRB(290, 40, 0, 0),

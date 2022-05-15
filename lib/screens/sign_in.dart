@@ -1,8 +1,8 @@
-import 'package:carrental/screens/home/home.dart';
-import 'package:carrental/screens/password/password.dart';
+import 'package:carrental/screens/home.dart';
+import 'package:carrental/screens/passreset.dart';
 import 'package:carrental/widgets/hint_to_textfield.dart';
 import 'package:flutter/material.dart';
-import '../sign_up/sign_up.dart';
+import 'sign_up.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);

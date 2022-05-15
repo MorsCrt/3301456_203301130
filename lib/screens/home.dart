@@ -1,5 +1,5 @@
 import 'package:carrental/constants/constant.dart';
-import 'package:carrental/screens/settings/settings.dart';
+import 'package:carrental/screens/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:carrental/widgets/Home/car_list.dart';
 

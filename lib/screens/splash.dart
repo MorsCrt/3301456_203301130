@@ -1,7 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
-import 'package:carrental/screens/sign_in/sign_in.dart';
+import 'package:carrental/screens/sign_in.dart';
 import 'package:flutter/material.dart';
-import '../../constants/constant.dart';
+import '../constants/constant.dart';
 
 class Splash extends StatelessWidget {
   static String splashRoute = "/splash";

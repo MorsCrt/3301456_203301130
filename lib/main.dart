@@ -1,5 +1,5 @@
 import 'package:carrental/routes/routes.dart';
-import 'package:carrental/screens/splash/splash.dart';
+import 'package:carrental/screens/splash.dart';
 import 'package:flutter/material.dart';
 
 void main() {

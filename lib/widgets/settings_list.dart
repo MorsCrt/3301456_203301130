@@ -1,6 +1,6 @@
-import 'package:carrental/screens/balance/balance.dart';
-import 'package:carrental/screens/feedback/feedback.dart';
-import 'package:carrental/screens/showroom_location/showroom_location.dart';
+import 'package:carrental/screens/balance.dart';
+import 'package:carrental/screens/feedback.dart';
+import 'package:carrental/screens/showroom_location.dart';
 import 'package:flutter/material.dart';
 
 class SettingsList extends StatelessWidget {

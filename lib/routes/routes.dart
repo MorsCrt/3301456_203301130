@@ -1,14 +1,14 @@
-import 'package:carrental/screens/balance/balance.dart';
-import 'package:carrental/screens/feedback/feedback.dart';
-import 'package:carrental/screens/home/home.dart';
-import 'package:carrental/screens/showroom_location/showroom_location.dart';
-import 'package:carrental/screens/moreinfo/more_info.dart';
-import 'package:carrental/screens/password/password.dart';
-import 'package:carrental/screens/settings/settings.dart';
-import 'package:carrental/screens/sign_in/sign_in.dart';
-import 'package:carrental/screens/sign_up/sign_up.dart';
+import 'package:carrental/screens/balance.dart';
+import 'package:carrental/screens/feedback.dart';
+import 'package:carrental/screens/home.dart';
+import 'package:carrental/screens/showroom_location.dart';
+import 'package:carrental/screens/more_info.dart';
+import 'package:carrental/screens/passreset.dart';
+import 'package:carrental/screens/settings.dart';
+import 'package:carrental/screens/sign_in.dart';
+import 'package:carrental/screens/sign_up.dart';
 import 'package:flutter/widgets.dart'; //For Widget Builder
-import '../screens/splash/splash.dart';
+import '../screens/splash.dart';
 
 final Map<String, WidgetBuilder> routes = {
   Splash.splashRoute: (context) => const Splash(),
