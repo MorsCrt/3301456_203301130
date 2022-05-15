@@ -1,4 +1,5 @@
 import 'package:carrental/constants/constant.dart';
+import 'package:carrental/widgets/linear_gradien_appbar.dart';
 import 'package:flutter/material.dart';
 
 class FeedBack extends StatefulWidget {
@@ -15,22 +16,7 @@ class _FeedBackState extends State<FeedBack> {
     var size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color.fromARGB(171, 73, 73, 73),
-              Colors.black,
-            ], begin: Alignment.bottomCenter, end: Alignment.topRight),
-          ),
-        ),
-        title: const Text(
-          "Thank You!",
-          style: TextStyle(
-              color: Colors.white, fontSize: 40, fontFamily: "Rooster"),
-        ),
-      ),
+      appBar: const LnrGradiendAppBar(appBarText: "Feedback - Thank You!"),
       body: SizedBox(
         height: size.height,
         width: size.width,

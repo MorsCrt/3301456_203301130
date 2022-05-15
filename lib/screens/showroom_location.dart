@@ -1,3 +1,4 @@
+import 'package:carrental/widgets/linear_gradien_appbar.dart';
 import 'package:flutter/material.dart';
 
 class ShowroomLocation extends StatelessWidget {
@@ -6,24 +7,11 @@ class ShowroomLocation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
+    Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        flexibleSpace: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(colors: [
-              Color.fromARGB(171, 73, 73, 73),
-              Colors.black,
-            ], begin: Alignment.bottomCenter, end: Alignment.topRight),
-          ),
-        ),
-        title: const Text(
-          "Location",
-          style: TextStyle(
-              color: Colors.white, fontSize: 50, fontFamily: "Rooster"),
-        ),
+      appBar: const LnrGradiendAppBar(
+        appBarText: "Showroom Location",
       ),
       body: SizedBox(
         height: size.height,

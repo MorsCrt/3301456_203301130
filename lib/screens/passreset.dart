@@ -1,4 +1,5 @@
 import 'package:carrental/widgets/hint_to_textfield.dart';
+import 'package:carrental/widgets/linear_gradien_appbar.dart';
 import 'package:flutter/material.dart';
 
 class Password extends StatelessWidget {
@@ -8,10 +9,7 @@ class Password extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: const Text("Password Reset"),
-      ),
+      appBar: const LnrGradiendAppBar(appBarText: "Password Reset"),
       body: Padding(
         padding: const EdgeInsets.only(top: 10),
         child: Padding(

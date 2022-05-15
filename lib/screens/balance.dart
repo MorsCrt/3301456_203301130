@@ -1,5 +1,6 @@
 import 'package:carrental/constants/constant.dart';
 import 'package:carrental/widgets/hint_to_textfield.dart';
+import 'package:carrental/widgets/linear_gradien_appbar.dart';
 import 'package:flutter/material.dart';
 
 class Balance extends StatefulWidget {
@@ -13,22 +14,7 @@ class _BalanceState extends State<Balance> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(colors: [
-                Color.fromARGB(171, 73, 73, 73),
-                Colors.black,
-              ], begin: Alignment.bottomCenter, end: Alignment.topRight),
-            ),
-          ),
-          title: const Text(
-            "Balance",
-            style: TextStyle(
-                color: Colors.white, fontSize: 50, fontFamily: "Rooster"),
-          ),
-        ),
+        appBar: const LnrGradiendAppBar(appBarText: "Balance"),
         body: Column(
           children: [
             Container(

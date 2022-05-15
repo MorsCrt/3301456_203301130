@@ -1,4 +1,5 @@
 import 'package:carrental/widgets/hint_to_textfield.dart';
+import 'package:carrental/widgets/linear_gradien_appbar.dart';
 import 'package:flutter/material.dart';
 
 class MoreInfo extends StatelessWidget {
@@ -8,10 +9,7 @@ class MoreInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: const Text("MoreInfo"),
-      ),
+      appBar: const LnrGradiendAppBar(appBarText: "More Info"),
       body: Padding(
         padding: const EdgeInsets.all(15),
         child: Column(
