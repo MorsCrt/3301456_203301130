@@ -11,19 +11,26 @@ class Balance extends StatefulWidget {
 }
 
 class _BalanceState extends State<Balance> {
+  bool click = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: const LnrGradiendAppBar(appBarText: "Balance"),
         body: Column(
           children: [
-            Container(
-              alignment: Alignment.topCenter,
-              child: SizedBox(
-                child: Image.asset(
-                  "assets/images/creditcard.gif",
-                  height: 200,
-                  width: 200,
+            AnimatedContainer(
+              duration: const Duration(seconds: 2),
+              height: click ? 100 : 200,
+              width: click ? 100 : 200,
+              curve: Curves.fastOutSlowIn,
+              child: Container(
+                alignment: Alignment.topCenter,
+                child: SizedBox(
+                  child: Image.asset(
+                    "assets/images/creditcard.gif",
+                    height: 200,
+                    width: 200,
+                  ),
                 ),
               ),
             ),
@@ -55,7 +62,11 @@ class _BalanceState extends State<Balance> {
                       Padding(
                         padding: const EdgeInsets.only(top: 7),
                         child: FloatingActionButton.large(
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              click = !click;
+                            });
+                          },
                           child: const Icon(
                             Icons.arrow_circle_right_outlined,
                             size: 75,

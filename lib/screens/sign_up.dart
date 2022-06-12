@@ -1,12 +1,22 @@
+import 'package:carrental/util/validations.dart';
+import 'package:carrental/util/white_snackbar.dart';
 import 'package:carrental/widgets/Shared/linear_gradien_appbar.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/Shared/hint_to_textfield.dart';
 import 'more_info.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
   static String signUpRoute = "/SignUp";
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  final email = TextEditingController();
+  final password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +51,8 @@ class SignUp extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 15),
                       child: Row(
-                        children: const [
-                          Padding(
+                        children: [
+                          const Padding(
                             padding: EdgeInsets.only(right: 12),
                             child: Icon(
                               Icons.alternate_email,
@@ -51,6 +61,7 @@ class SignUp extends StatelessWidget {
                           ),
                           Expanded(
                             child: HintToTextField(
+                              controller: email,
                               hintText: "Email",
                             ),
                           )
@@ -58,8 +69,8 @@ class SignUp extends StatelessWidget {
                       ),
                     ),
                     Row(
-                      children: const [
-                        Padding(
+                      children: [
+                        const Padding(
                           padding: EdgeInsets.only(right: 12),
                           child: Icon(
                             Icons.lock,
@@ -68,6 +79,7 @@ class SignUp extends StatelessWidget {
                         ),
                         Expanded(
                             child: HintToTextField(
+                          controller: password,
                           hintText: "Password",
                         ))
                       ],
@@ -87,8 +99,24 @@ class SignUp extends StatelessWidget {
                             ),
                             child: FloatingActionButton(
                               onPressed: () {
-                                Navigator.pushNamed(
-                                    context, MoreInfo.moreInfoRoute);
+                                if (emailValid(email) == true &&
+                                    passValid(password) == true) {
+                                  Navigator.pushNamed(
+                                      context, MoreInfo.moreInfoRoute);
+                                } else if (emailValid(email) == false &&
+                                    passValid(password) == true) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      whiteSnackBar("Email is not valid"));
+                                } else if (emailValid(email) == true &&
+                                    passValid(password) == false) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      whiteSnackBar(
+                                          "Password min 8 characters\nshould contain least upper and lower case\none digit and one special character"));
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      whiteSnackBar(
+                                          "Email and pass is not valid,Password min 8 characters\nshould contain least upper and lower case\none digit and one special character  "));
+                                }
                               },
                               child: const Icon(Icons.save_as_outlined),
                               backgroundColor: Colors.transparent,
