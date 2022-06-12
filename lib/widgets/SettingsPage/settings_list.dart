@@ -1,6 +1,8 @@
 import 'package:carrental/screens/balance.dart';
 import 'package:carrental/screens/feedback.dart';
+import 'package:carrental/screens/privacy.dart';
 import 'package:carrental/screens/showroom_location.dart';
+import 'package:carrental/screens/statistics.dart';
 import 'package:flutter/material.dart';
 
 class SettingsList extends StatelessWidget {
@@ -62,15 +64,20 @@ class SettingsList extends StatelessWidget {
             ),
           ),
         ),
-        const Card(
-          color: Color.fromARGB(255, 39, 39, 39),
-          elevation: 5,
-          child: ListTile(
-            title: Text(
-              "Privacy",
-              style: TextStyle(color: Colors.white),
+        InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, Privacy.locationPrivacy);
+          },
+          child: const Card(
+            color: Color.fromARGB(255, 39, 39, 39),
+            elevation: 5,
+            child: ListTile(
+              title: Text(
+                "Privacy",
+                style: TextStyle(color: Colors.white),
+              ),
+              leading: Icon(Icons.privacy_tip, color: Colors.white),
             ),
-            leading: Icon(Icons.privacy_tip, color: Colors.white),
           ),
         ),
         const Card(
@@ -82,6 +89,22 @@ class SettingsList extends StatelessWidget {
               style: TextStyle(color: Colors.white),
             ),
             leading: Icon(Icons.warning, color: Colors.white),
+          ),
+        ),
+        InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, Statistics.locationsStatistics);
+          },
+          child: const Card(
+            color: Color.fromARGB(255, 39, 39, 39),
+            elevation: 5,
+            child: ListTile(
+              title: Text(
+                "Statistics",
+                style: TextStyle(color: Colors.white),
+              ),
+              leading: Icon(Icons.warning, color: Colors.white),
+            ),
           ),
         ),
         const Card(

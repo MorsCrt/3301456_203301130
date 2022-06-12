@@ -1,12 +1,24 @@
 import 'package:carrental/screens/home.dart';
 import 'package:carrental/screens/passreset.dart';
+import 'package:carrental/services/auth/auth_services.dart';
+import 'package:carrental/util/validations.dart';
+import 'package:carrental/util/white_snackbar.dart';
 import 'package:carrental/widgets/Shared/hint_to_textfield.dart';
 import 'package:flutter/material.dart';
 import 'sign_up.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
   static String signInRoute = "/SignIn";
+
+  @override
+  State<SignIn> createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  final email = TextEditingController();
+  final password = TextEditingController();
+  FirebaseAuthServices service = FirebaseAuthServices();
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +72,8 @@ class SignIn extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15),
                     child: Row(
-                      children: const [
-                        Padding(
+                      children: [
+                        const Padding(
                           padding: EdgeInsets.only(right: 12),
                           child: Icon(
                             Icons.alternate_email,
@@ -69,14 +81,14 @@ class SignIn extends StatelessWidget {
                           ),
                         ),
                         Expanded(
-                          child: HintToTextField(hintText: "Email"),
-                        )
+                            child: HintToTextField(
+                                hintText: "Email", controller: email))
                       ],
                     ),
                   ),
                   Row(
-                    children: const [
-                      Padding(
+                    children: [
+                      const Padding(
                         padding: EdgeInsets.only(right: 12),
                         child: Icon(
                           Icons.lock,
@@ -85,8 +97,11 @@ class SignIn extends StatelessWidget {
                       ),
                       Expanded(
                         child: Padding(
-                          padding: EdgeInsets.only(bottom: 20),
-                          child: HintToTextField(hintText: "Password"),
+                          padding: const EdgeInsets.only(bottom: 20),
+                          child: HintToTextField(
+                            hintText: "Password",
+                            controller: password,
+                          ),
                         ),
                       )
                     ],
@@ -108,7 +123,17 @@ class SignIn extends StatelessWidget {
                             padding: const EdgeInsets.all(5),
                             child: FloatingActionButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, Home.homeRoute);
+                                if (emailValid(email) == true &&
+                                    passValid(password) == true) {
+                                  service
+                                      .signIn(email.text, password.text)
+                                      .then((value) => Navigator.pushNamed(
+                                          context, Home.homeRoute));
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                      whiteSnackBar(
+                                          "Email or password not correct!"));
+                                }
                               },
                               child: const Icon(Icons.garage),
                               backgroundColor: Colors.transparent,

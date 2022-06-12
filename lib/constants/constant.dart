@@ -9,8 +9,10 @@ bool isChecked = false;
 
 //for home page
 List<Car> carInfoHome = [
-  Car("assets/images/LamborghiniAventador.png", 800, "Lamborghini"),
-  Car("assets/images/MercedesSclass.png", 550, "Mercedes"),
-  Car("assets/images/Supra.png", 500, "Supra"),
-  Car("assets/images/TeslaModel3.png", 650, "Tesla"),
+  Car("assets/images/teslatruck.png", 900, "TeslaTruck"),
+  Car("assets/images/nissan.png", 700, "NissanGTR"),
+  Car("assets/images/LamborghiniAventador.png", 800, "LamborghiniAventador"),
+  Car("assets/images/MercedesSclass.png", 550, "MercedesSClass"),
+  Car("assets/images/Supra.png", 500, "SupraNew"),
+  Car("assets/images/TeslaModel3.png", 650, "TeslaModel3"),
 ];
