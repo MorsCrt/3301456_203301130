@@ -88,7 +88,7 @@ class SettingsList extends StatelessWidget {
               "Notifications",
               style: TextStyle(color: Colors.white),
             ),
-            leading: Icon(Icons.warning, color: Colors.white),
+            leading: Icon(Icons.notifications, color: Colors.white),
           ),
         ),
         InkWell(
@@ -103,7 +103,7 @@ class SettingsList extends StatelessWidget {
                 "Statistics",
                 style: TextStyle(color: Colors.white),
               ),
-              leading: Icon(Icons.warning, color: Colors.white),
+              leading: Icon(Icons.graphic_eq, color: Colors.white),
             ),
           ),
         ),

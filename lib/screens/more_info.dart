@@ -1,5 +1,5 @@
 import 'package:carrental/screens/home.dart';
-import 'package:carrental/services/auth/firestore_services.dart';
+import 'package:carrental/services/firestore/firestore_services.dart';
 import 'package:carrental/util/validations.dart';
 import 'package:carrental/util/white_snackbar.dart';
 import 'package:carrental/widgets/Shared/hint_to_textfield.dart';
