@@ -23,7 +23,7 @@ class LnrGradiendAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(
         appBarText,
         style: const TextStyle(
-            color: Colors.white, fontSize: 50, fontFamily: "Rooster"),
+            color: Colors.white, fontSize: 30, fontFamily: "Rooster"),
       ),
       actions: actionList,
     );
