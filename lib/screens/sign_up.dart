@@ -1,3 +1,4 @@
+import 'package:carrental/services/auth/auth_services.dart';
 import 'package:carrental/util/validations.dart';
 import 'package:carrental/util/white_snackbar.dart';
 import 'package:carrental/widgets/Shared/linear_gradien_appbar.dart';
@@ -17,119 +18,132 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   final email = TextEditingController();
   final password = TextEditingController();
+  FirebaseAuthServices service = FirebaseAuthServices();
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     return Scaffold(
         appBar: const LnrGradiendAppBar(appBarText: "Sign Up"),
-        body: Column(
-          children: [
-            Expanded(
-              flex: 2,
-              child: Container(
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage("assets/images/roof.png"),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Text("Sign Up",
-                            style: TextStyle(color: Colors.white, fontSize: 40))
-                      ],
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 15),
-                      child: Row(
-                        children: [
-                          const Padding(
-                            padding: EdgeInsets.only(right: 12),
-                            child: Icon(
-                              Icons.alternate_email,
-                              color: Colors.white,
-                            ),
-                          ),
-                          Expanded(
-                            child: HintToTextField(
-                              controller: email,
-                              hintText: "Email",
-                            ),
-                          )
-                        ],
+        body: SingleChildScrollView(
+          child: SizedBox(
+            height: size.height,
+            width: size.width,
+            child: Column(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("assets/images/roof.png"),
+                        fit: BoxFit.fill,
                       ),
                     ),
-                    Row(
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(right: 12),
-                          child: Icon(
-                            Icons.lock,
-                            color: Colors.white,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            Text("Sign Up",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 40))
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 15),
+                          child: Row(
+                            children: [
+                              const Padding(
+                                padding: EdgeInsets.only(right: 12),
+                                child: Icon(
+                                  Icons.alternate_email,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              Expanded(
+                                child: HintToTextField(
+                                  controller: email,
+                                  hintText: "Email",
+                                ),
+                              )
+                            ],
                           ),
                         ),
-                        Expanded(
-                            child: HintToTextField(
-                          controller: password,
-                          hintText: "Password",
-                        ))
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(290, 40, 0, 0),
-                          child: Container(
-                            padding: const EdgeInsets.all(5),
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: Colors.white.withOpacity(0.3),
+                        Row(
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(right: 12),
+                              child: Icon(
+                                Icons.lock,
+                                color: Colors.white,
                               ),
                             ),
-                            child: FloatingActionButton(
-                              onPressed: () {
-                                if (emailValid(email) == true &&
-                                    passValid(password) == true) {
-                                  Navigator.pushNamed(
-                                      context, MoreInfo.moreInfoRoute);
-                                } else if (emailValid(email) == false &&
-                                    passValid(password) == true) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      whiteSnackBar("Email is not valid"));
-                                } else if (emailValid(email) == true &&
-                                    passValid(password) == false) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      whiteSnackBar(
-                                          "Password min 8 characters\nshould contain least upper and lower case\none digit and one special character"));
-                                } else {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                      whiteSnackBar(
-                                          "Email and pass is not valid,Password min 8 characters\nshould contain least upper and lower case\none digit and one special character  "));
-                                }
-                              },
-                              child: const Icon(Icons.save_as_outlined),
-                              backgroundColor: Colors.transparent,
-                            ),
-                          ),
+                            Expanded(
+                                child: HintToTextField(
+                              controller: password,
+                              hintText: "Password",
+                            ))
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(290, 40, 0, 0),
+                              child: Container(
+                                padding: const EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  border: Border.all(
+                                    color: Colors.white.withOpacity(0.3),
+                                  ),
+                                ),
+                                child: FloatingActionButton(
+                                  onPressed: () {
+                                    if (emailValid(email) == true &&
+                                        passValid(password) == true) {
+                                      service.createUserMailPass(
+                                          email.text, password.text);
+                                      Navigator.pushNamed(
+                                          context, MoreInfo.moreInfoRoute);
+                                    } else if (emailValid(email) == false &&
+                                        passValid(password) == true) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(whiteSnackBar(
+                                              "Email is not valid"));
+                                    } else if (emailValid(email) == true &&
+                                        passValid(password) == false) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(whiteSnackBar(
+                                              "Password min 8 characters\nshould contain least upper and lower case\none digit and one special character"));
+                                    } else {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(whiteSnackBar(
+                                              "Email and pass is not valid,Password min 8 characters\nshould contain least upper and lower case\none digit and one special character  "));
+                                    }
+                                  },
+                                  child: const Icon(Icons.save_as_outlined),
+                                  backgroundColor: Colors.transparent,
+                                ),
+                              ),
+                            )
+                          ],
                         )
                       ],
-                    )
-                  ],
-                ),
-              ),
-            )
-          ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
         ));
   }
 }
