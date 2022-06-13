@@ -18,4 +18,12 @@ class FirestoreServices {
     });
     return null;
   }
+
+  Future<User?> feedBack(String feedback) async {
+    await firestore
+        .collection("UserFeedbacks")
+        .doc(auth.currentUser!.uid)
+        .set({'feedback': feedback});
+    return null;
+  }
 }
