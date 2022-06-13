@@ -1,3 +1,5 @@
+import 'package:carrental/util/file.dart';
+import 'package:carrental/util/white_snackbar.dart';
 import 'package:carrental/widgets/Shared/linear_gradien_appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' show rootBundle;
@@ -32,7 +34,18 @@ class _PrivacyState extends State<Privacy> {
     return Scaffold(
       appBar: const LnrGradiendAppBar(appBarText: "Privacy"),
       body: SingleChildScrollView(
-        child: Text(textData, style: const TextStyle(color: Colors.white)),
+        child: GestureDetector(
+            onDoubleTap: () {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(whiteSnackBar("Privacy agreement accepted"));
+              FileUtils.saveToFile("Accepted");
+            },
+            onLongPress: () {
+              FileUtils.readFromFile().then((value) =>
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(whiteSnackBar(value)));
+            },
+            child: Text(textData, style: const TextStyle(color: Colors.white))),
       ),
     );
   }
