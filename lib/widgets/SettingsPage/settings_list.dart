@@ -2,13 +2,22 @@ import 'package:carrental/screens/balance.dart';
 import 'package:carrental/screens/feedback.dart';
 import 'package:carrental/screens/privacy.dart';
 import 'package:carrental/screens/showroom_location.dart';
+import 'package:carrental/screens/sign_in.dart';
 import 'package:carrental/screens/statistics.dart';
+import 'package:carrental/services/auth/auth_services.dart';
 import 'package:flutter/material.dart';
 
-class SettingsList extends StatelessWidget {
+class SettingsList extends StatefulWidget {
   const SettingsList({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<SettingsList> createState() => _SettingsListState();
+}
+
+class _SettingsListState extends State<SettingsList> {
+  FirebaseAuthServices service = FirebaseAuthServices();
 
   @override
   Widget build(BuildContext context) {
@@ -107,15 +116,21 @@ class SettingsList extends StatelessWidget {
             ),
           ),
         ),
-        const Card(
-          color: Color.fromARGB(255, 39, 39, 39),
-          elevation: 5,
-          child: ListTile(
-            title: Text(
-              "Sign Out",
-              style: TextStyle(color: Colors.white),
+        InkWell(
+          onTap: () {
+            service.signOut();
+            Navigator.pushNamed(context, SignIn.signInRoute);
+          },
+          child: const Card(
+            color: Color.fromARGB(255, 39, 39, 39),
+            elevation: 5,
+            child: ListTile(
+              title: Text(
+                "Sign Out",
+                style: TextStyle(color: Colors.white),
+              ),
+              leading: Icon(Icons.exit_to_app, color: Colors.white),
             ),
-            leading: Icon(Icons.exit_to_app, color: Colors.white),
           ),
         ),
       ],
